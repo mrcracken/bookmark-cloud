@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bookmark Cloud - Admin Console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/note.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Bookmark Cloud</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#registration">Add</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#selectAll">Select</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#selectById">Edit</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#selectAllUsers">All Userss</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navigation -->
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
+        <h1 class="text-uppercase mb-0">Admin Console</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Do whatever you want, Mr Admin!</h2>
+      </div>
+    </header>
+    <!-- End of Header -->
+
+        <!-- Registration Grid Section -->
+    <section class="registration" id="registration">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Add Bookmark</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+        </div>
+	        <div class="formReg">
+		        <form id="myFormReg">
+		          <div class="form-group">
+		            <label>Site Name</label>
+		            <input type="text" class="form-control" id="title" placeholder="site">
+		          </div>
+		          <div class="form-group">
+		            <label>Site URL</label>
+		            <input type="text" class="form-control" id="content" placeholder="url">
+		          </div>
+						<!-- Example split danger button -->
+						<div class="dropdown">
+						  <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="getFolders()">
+						    Folders
+						  </button>
+						   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						   	<div id="foldersMenu"></div>
+						  </div>
+						</div>
+		        </form>
+	     	</div>
+	     	<br>
+     	<p class="lead">Just click Send to save bookmark in Default folder <a onclick="sendNote()" class="btn btn-primary">Send</a> </p>
+      </div>
+    </section>
+    <!-- End of Registration Grid Section -->
+    
+    <!-- Folders Class -->
+	<div class="jumbotron">
+	  <h1 class="display-4">Folders, folders, folders...</h1>
+	  <p class="lead">Create a new one</p>
+	  <p> 
+	  <div class="input-group mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+				  </div>
+		  	<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="folderName">
+		</div>
+	  <a onclick="createFolder()" class="btn btn-warning">Create</a>
+	  <hr class="my-4">
+	  <!-- Select Folders -->
+        <div class="column">
+        	<div class="text-center mt-4">
+  				<div id="allFolders">
+  				 	<p class="lead">or visit which you have saved before
+        			<a onclick="loadFolders()" class="btn btn-info">Get Folders</a>
+  				</div>
+  				<div id="visitFolder"></div>
+        	</div>
+        <br>
+        </div>
+      </div>
+	<!-- End of Folders Class -->
+
+    <!-- Select All Notes Section -->
+    <section class="bg-primary text-white mb-0" id="selectAll">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Select All Bookmarks</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+        	<div class="text-center mt-4">
+  				<div id="notes"></div>
+        	</div>
+        <br>
+        </div>
+        <a onclick="loadNotes()" class="btn btn-secondary">Get Bookmarks</a>
+      </div>
+    </section>
+    <!-- End of Select All Section -->
+    
+    <!-- Select Note By ID Section -->
+   <section class="registration" id="selectById">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Select Bookmark By ID</h2>
+        <hr class="star-dark mb-5">
+        	<div class="row">
+        		<div id="note" class="formSelect">
+		        	<form id="myFormSelect">
+		          		<div class="form-group">
+		            	<label>ID</label>
+		            	<input type="text" class="form-control" id="noteIdSelect" placeholder="ID">
+		          		</div>
+		        	</form>
+		     	<button class="btn btn-primary" id="loadNote">Get Bookmark</button>
+	    	 	</div>
+        	</div>
+      </div>
+    </section>
+    <!-- End of Select All Section -->
+    
+    <!-- Select All Users Section -->
+    <section class="bg-primary text-white mb-0" id="selectAllUsers">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Select All Users</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+        	<div class="text-center mt-4">
+  				<div id="users"></div>
+        	</div>
+        <br>
+        </div>
+        <a onclick="loadUsers()" class="btn btn-secondary">Get Users</a>
+      </div>
+    </section>
+    <!-- End of Select All Users Section -->
+    
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p class="lead mb-0">IBA Group a.s.,
+              <br>2583/13 Petržílkova St., Prague 5,
+              <br>158 00, Czech Republic</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/IBAGroupIT">
+                  <i class="fa fa-fw fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://plus.google.com/+Ibagroupit">
+                  <i class="fa fa-fw fa-google-plus"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://twitter.com/Ibagroup/">
+                  <i class="fa fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.linkedin.com/company/iba-group?trk=hb_tab_compy_id_238318">
+                  <i class="fa fa-fw fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://dribbble.com">
+                  <i class="fa fa-fw fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">About Bookmark Cloud</h4>
+            <p class="lead mb-0">Bookmark Cloud is an open source absolutely free project for storing your bookmarks into cloud. Developing and supporting by IBA Group</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; 1993-2018 IBA Group a.s.</small>
+        <small>Version <a target="_blank" href="https://github.com/mrcracken/bookmark-cloud">5.7.1</a></small>
+        <br>
+        <small>Open Source Project. Find on <a target="_blank" href="https://github.com/mrcracken/bookmark-cloud">Github</a></small>
+      </div>
+    </div>
+    <!-- End of Footer -->
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+   <!-- End of Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+ 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/note.min.js"></script>
+
+    <!-- JavaScript Code is here -->
+    <script src="js/main.js"></script>
+
+  </body>
+
+</html>
+<!-- End of console.html -->
