@@ -22,8 +22,8 @@ import javax.mail.internet.*;
 @RequestMapping("/api")
 public class UserController {
 
-	public static String fromEmail = "tibo2013w@gmail.com";  //change for your email
-	public static String fromEmailPassword = "NKnnshfhr78";  //change for your password
+	public static String fromEmail = "from@gmail.com";  //change for your email
+	public static String fromEmailPassword = "password";  //change for your password
 	public static String toEmailSubject = "Bookmark Cloud";
 	
     @Autowired
