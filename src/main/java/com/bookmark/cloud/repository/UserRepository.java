@@ -1,11 +1,11 @@
-package com.example.easynotes.repository;
-
-import com.example.easynotes.model.User;
+package com.bookmark.cloud.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.bookmark.cloud.model.User;
 
 /**
  * Created by IBA Group on 2018.

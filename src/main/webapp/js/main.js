@@ -107,8 +107,8 @@
 	
 	// function for view bookmarks in this folder
 	function visitFolder(folderId){
+		// new request
 		 var xhr = new XMLHttpRequest();
-		 console.log(folderId);
 	      //GET method for http://localhost:8080/api/folders/select/whoes
 	      xhr.open('GET', 'http://localhost:8080/api/notes/folder/' + folderId, true);
 	      //function for checking status 
@@ -118,7 +118,6 @@
 	          //if OK here we parsing JSON
 	          var notes = JSON.parse(this.responseText);
 	          // prepare var for output
-	          console.log(notes);
 	          var output = '';
 	          //output notes in a list
 	          for(var i in notes){
@@ -156,8 +155,8 @@
 			
     // function for regestration note
     function sendNote(folderId){
+    	// get user ID from local storage
     	var userId = localStorage.getItem(userId);
-    	console.log("User ID = " + userId);
         //title from form
     	var title = document.getElementById('title').value;
     	//content from form
@@ -194,8 +193,8 @@
     
     //function for loading all notes
     function loadNotes(){
+      // get user ID from local storage
       var userId = localStorage.getItem(userId);
-      console.log("User ID = " + userId);
       //making AJAX request
       var xhr = new XMLHttpRequest();
       //GET method for http://localhost:8080/api/notes/
@@ -441,14 +440,13 @@
 		        if(this.status == 200){
 		          //if OK here we parsing JSON
 		          var user = JSON.parse(this.responseText);
+		          // set user ID in local storage
 		          localStorage.setItem(userId, user.id);
+		          // get user ID from local storage
 		          var userId = localStorage.getItem(userId);
-			  // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-		          console.log("User ID = " + userId);
+			      // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 		          //checking password
 		          if(password == user.password){
-		        	  	// output in console that password was correct
-		        	  	console.log("Correct Password");
 			          	// switch case
 			          	switch(user.role){
 			          	// if role == 0 means this is user. Open home.html

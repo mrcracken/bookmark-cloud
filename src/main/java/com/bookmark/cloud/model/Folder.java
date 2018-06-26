@@ -1,4 +1,4 @@
-package com.example.easynotes.model;
+package com.bookmark.cloud.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,25 +13,20 @@ import java.util.Date;
  * Created by IBA Group on 2018.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "folders")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt", "role"},
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt", "whose"},
         allowGetters = true)
-public class User {
+public class Folder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String username;
+    private String name;
     
-    @NotBlank
-    private String password;
-
-    @NotBlank
-    private String email;
-    
-    private int role;
+    // can be blank because system adds whose automatically
+    private Long whose;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -51,36 +46,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public Long getWhose() {
+		return whose;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getRole() {
-		return role;
-	}
-
-	public void setRole(int role) {
-		this.role = role;
+	public void setWhose(Long whose) {
+		this.whose = whose;
 	}
 
 	public Date getCreatedAt() {

@@ -1,10 +1,10 @@
-package com.example.easynotes.controller;
+package com.bookmark.cloud.controller;
 
-import com.example.easynotes.exception.ResourceNotFoundException;
-import com.example.easynotes.model.Note;
-import com.example.easynotes.model.User;
-import com.example.easynotes.repository.NoteRepository;
-import com.example.easynotes.repository.UserRepository;
+import com.bookmark.cloud.exception.ResourceNotFoundException;
+import com.bookmark.cloud.model.Note;
+import com.bookmark.cloud.model.User;
+import com.bookmark.cloud.repository.NoteRepository;
+import com.bookmark.cloud.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
