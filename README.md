@@ -82,8 +82,8 @@ The app defines following CRUD APIs.
 You can test them using Postman or any other rest client.
 
 **6. Stop application**
-Visit the url for details
+Visit the url for details <br>
 https://stackoverflow.com/questions/40118878/8080-port-already-taken-issue-when-trying-to-redeploy-project-from-spring-tool-s
 
-Also for updating Javascript code visit
+Also for updating Javascript code visit <br>
 https://stackoverflow.com/questions/27037989/intellij-idea-12-1-7-javascript-file-not-updating-when-application-runs
